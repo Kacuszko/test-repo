@@ -6,8 +6,6 @@ from concurrent.futures import ThreadPoolExecutor
 import time
 
 instagram_url = 'https://instagram.com'
-# username = 'kacuszko'
-
 
 def get_followers_count(profile_url: str, session):
     response = session.get(f"{instagram_url}/{profile_url}")
@@ -37,15 +35,7 @@ async def get_followers_async(profiles: list) -> list:
                 res.append(response)
     return res
 
-# SYNCH
-start = time.time()
-profiles = ['kacuszko', 'mariamalgosia']
-for profile in profiles:
-    count = get_followers_count(profile, requests)
-    print(f"{profile} has {count} followers")
-end = time.time()
-elapsed = end - start
-print(f"SYNCHRONOUSLY took {elapsed} seconds")
+profiles = ['kacuszko', 'mariamalgosia', 'tojadudziak', 'anetawachnik', 'dziendobrytvn']
 
 # ASYNC
 start = time.time()

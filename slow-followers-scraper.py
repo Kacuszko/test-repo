@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import time
 
 instagram_url = 'https://instagram.com'
 # username = 'kacuszko'
@@ -21,8 +22,12 @@ def get_followers_count(profile_url: str):
         followers_count = interaction_statistics['userInteractionCount']
         return followers_count
 
-
-profiles = ['kacuszko', 'mariamalgosia']
+start = time.time()
+profiles = ['kacuszko', 'mariamalgosia', 'tojadudziak', 'anetawachnik', 'dziendobrytvn']
 for profile in profiles:
     count = get_followers_count(profile)
     print(f"{profile} has {count} followers")
+
+end = time.time()
+escalate = end - start
+print(f"it took {escalate}")
